@@ -1,0 +1,8 @@
+version: '2.2'
+services:
+    hardhat:
+        build: ./
+        container_name: 'FuntecCore'
+        stdin_open: true
+        tty: true
+

@@ -20,8 +20,8 @@ contract PollFactory is PollStorage {
 
     event pollCreation(
         uint pollId, 
-        uint indexed receiverId, 
-        uint indexed oracleId, 
+        uint receiverId, 
+        uint oracleId, 
         uint dateLimit,
         uint amountContributed,
         address contributor,
@@ -42,7 +42,6 @@ contract PollFactory is PollStorage {
         require(accountsStorage.isOracleEnabled(_oracleId), "Oracle must be enabled");
 
         pollsUsersContributions[polls.length][msg.sender].amountContributed += uint128(msg.value);
-        pollsRequirementsIPFSHashes[polls.length] = _hash;
         polls.push(Poll(uint128(msg.value), uint32(_oracleId), _dateLimit, uint32(_receiverId), false, false, false, false, false, false, false));
 
         emit pollCreation(polls.length - 1, _receiverId, _oracleId, _dateLimit, msg.value, msg.sender, _hash);

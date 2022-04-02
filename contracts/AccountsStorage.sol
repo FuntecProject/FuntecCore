@@ -42,8 +42,8 @@ contract AccountsStorage is Ownable {
 	);
 	
 	constructor () Ownable() payable {
-		receivers.push(0x0000000000000000000000000000000000000000);
-		oracles.push(Oracle(0x0000000000000000000000000000000000000000, 0, 0, 0, false));
+		receivers.push(address(0));
+		oracles.push(Oracle(address(0), 0, 0, 0, false));
 	}
 
 	/// @notice creates a new account

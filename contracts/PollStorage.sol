@@ -46,8 +46,7 @@ contract PollStorage is Ownable {
 
     Poll[] public polls;
     mapping (uint => mapping(address => PollContributionData)) public pollsUsersContributions;
-    mapping (uint => string) public pollsRequirementsIPFSHashes;
-
+    
     function getPollsLength() external view returns(uint) {
         return polls.length;
     }
